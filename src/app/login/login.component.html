@@ -1,0 +1,40 @@
+<div id="pnlLogin" >
+  <div id="popUp">
+    <div class="leftside">&nbsp;</div>
+    <div class="rightside">
+      <form [formGroup]="loginForm">
+        <h1>POSTELF</h1>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" required name="username" formControlName="loginName" placeholder="Username" >
+          <div *ngIf="loginForm.controls.loginName.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="loginForm.controls.loginName.errors.required">
+            Username is required.
+          </div>
+          <div *ngIf="loginForm.controls.loginName.errors.email">
+            Username is not a vaild email address.
+          </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" required name="password" formControlName="password" >
+          <div *ngIf="loginForm.controls.password.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="loginForm.controls.password.errors.required">
+            Password is required.
+          </div>
+          <div *ngIf="loginForm.controls.password.errors.minlength">
+            Password must be at least 6 characters.
+          </div>
+          <div *ngIf="wrongPassword">
+            Invalid username/password
+          </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" name="login" id="login" (click)="login()">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>  
+</div>

@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Rajdhani|Lobster');
+@import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
+.topMenu{
+  background-color:#3AAB83;
+  height:20vh;
+  
+}
+.menuLeft{
+  width:20%;
+  min-width:200px;
+  display:inline-block;
+}
+.menuRight{
+  display:inline-block;
+  position:absolute;
+  left: calc(100% - 20vw);
+  top: 0px;
+  width:20vw;
+  padding-top:2em;
+  text-align: center;
+  color:#FFF;
+}
+
+.menulogo{
+  padding-top:2em;
+  padding-bottom:1em;
+  padding-left:2em;
+  h1{
+    text-align: left;
+    font-family: 'Lobster', cursive;
+    font-size:2.5em;
+    color:#FFF;
+  }
+}
+.usernamePnl{
+  padding-left:2em;
+}
+
+.userlogoWrapper{
+  display: inline-block;
+  text-align:left;
+}
+
+.userlogo{
+  border-radius: 4em;
+  border: 0.1em solid #FFFFFF;
+  font-size:2em;
+  width: 1.75em;
+  display: inline-block;
+  color:#FFF;
+  font-family: 'Rajdhani', sans-serif;
+  text-align:center;
+}
+
+.usernameWrapper{
+  width:calc(100% - 4em);
+  display: inline-block;
+  text-align:left;
+  color:#FFF;
+  padding-left:10px;
+  
+}
+
+.username{
+  font-family: 'Rajdhani', sans-serif;
+  font-size:1.25em;
+}
+
+.userrole{
+  font-family: 'Rajdhani', sans-serif;
+  font-size:0.75em;
+}
+
+.link{
+  cursor:pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size:1.25em;
+}

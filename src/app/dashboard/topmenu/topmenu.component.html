@@ -1,0 +1,15 @@
+<div class="topMenu">
+  <div class="menuLeft">
+    <div class="menulogo"><h1>POSTELF</h1></div>
+    <div class="usernamePnl">
+      <span class="userlogoWrapper">
+        <span class="userlogo" *ngIf="loaded">{{userCap}}</span>
+      </span>
+      <span class="usernameWrapper" *ngIf="loaded">
+        <div class="username">{{username}}</div>
+        <div class="userrole">{{userrole}}</div>
+      </span>
+    </div>
+  </div>
+  <div class="menuRight"><span class="link" (click)="logoff()"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</span></div>
+</div>

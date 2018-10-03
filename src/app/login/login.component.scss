@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Rajdhani|Lobster');
+
+#pnlLogin{
+  width:100vw;
+  height:100vh;
+  margin:0px;
+  padding:0px;
+  background-image:url(/assets/images/login-background.jpg);
+}
+
+#popUp{
+  width:80%;
+  height:80%;
+  background-color:#FFFFFF;
+  top:10%;
+  left:10%;
+  position:absolute;
+  //box-shadow: 10px 10px 5px rgba(235,235,235,0.75);
+  padding:0px;
+  margin:0px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size:1.5em;
+  
+  
+  .leftside{
+    width:50%;
+    height:100%;
+    display: inline-block;
+    position: absolute;
+    background-image:url(/assets/images/login-background-left.jpg);
+  }
+  
+  .rightside{
+    width:50%;
+    height:100%;
+    left:50%;
+    background-color:#FFFFFF;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    form{
+      display: inline-block;
+      vertical-align: middle;
+      width:80%;
+      
+      h1{
+        text-align: center;
+        font-family: 'Lobster', cursive;
+        font-size:2.5em;
+      }
+      
+      button{
+        font-size:1em;
+      }
+    }
+  }
+}

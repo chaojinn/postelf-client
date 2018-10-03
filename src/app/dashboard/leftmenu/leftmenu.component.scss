@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Rajdhani|Lobster');
+@import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
+
+.leftmenu{
+  width:240px;
+  height:80vh;
+  background-color:#F8F8F8;
+  padding-top:2em;
+  padding-left:2em;
+  display: inline-block;
+  
+  ul{
+    list-style: none;
+    margin-left:-30px;
+  }
+}
+
+.mainMenuItem{
+  margin-bottom:1em;
+  cursor:pointer;
+  font-family: 'Rajdhani', sans-serif;
+  font-size:1.5em;
+  
+  i{
+    color:#59A6f5;
+    margin-right:1em;
+  }
+}

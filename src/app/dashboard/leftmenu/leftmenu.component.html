@@ -1,0 +1,22 @@
+<div class="leftmenu"> 
+  <ul>
+    <li class="mainMenuItem" (click)="menuClick('statuspanel')"><i class="fas fa-tachometer-alt" ></i>Dashboard</li>
+    <li class="mainMenuItem">
+      <span data-toggle="collapse" data-target="#menuService"><i class="fas fa-server"></i>Services</span>
+      <ul id="menuService" class="collapse">
+        <li>service 1</li>
+        <li>service 2</li>
+        <li>service 3</li>
+      </ul>
+    </li>
+    <li class="mainMenuItem"><i class="fas fa-at"></i>Domains</li>
+    <li class="mainMenuItem"><i class="fas fa-inbox"></i>Mailboxes</li>
+    <li class="mainMenuItem">
+      <span data-toggle="collapse" data-target="#menuSettings"><i class="fas fa-sliders-h"></i>Settings</span>
+      <ul id="menuSettings" class="collapse">
+        <li>Users</li>
+        <li>Backup/Restore</li>
+      </ul>
+    </li>
+  </ul>
+</div>

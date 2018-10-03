@@ -1,0 +1,203 @@
+<div class="container">
+  <h1>Install Wizard, Step {{wizard.step}}/{{wizard.totalStep}}</h1>
+
+  <div *ngIf="wizard.step==1">
+    <form [formGroup]="wizardForm1" > 
+      <div class="form-group">
+        <label for="loginAdmin">Admin Login(email)</label>
+        <input type="email" class="form-control" id="loginAdmin" formControlName="loginName" placeholder="Admin Login" >
+        <div *ngIf="wizardForm1.controls.loginName.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm1.controls.loginName.errors.required">
+            Admin Login is required.
+          </div>
+          <div *ngIf="wizardForm1.controls.loginName.errors.email">
+            Admin Login is not a vaild email address.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password"  >
+        <div *ngIf="wizardForm1.controls.password.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm1.controls.password.errors.required">
+            Password is required.
+          </div>
+          <div *ngIf="wizardForm1.controls.password.errors.minlength">
+            Password must be at least 6 characters.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cfmpassword">Confirm Password</label>
+        <input type="password" class="form-control" id="cfmPassword" formControlName="cfmPassword"  >
+        <div *ngIf="wizardForm1.controls.cfmPassword.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm1.controls.cfmPassword.errors.required">
+            Confirm password is required.
+          </div>
+          <div *ngIf="wizardForm1.controls.cfmPassword.errors.notEquivalent">
+            Confirm password does not match password.
+          </div>
+          <div *ngIf="wizardForm1.controls.cfmPassword.errors.minlength">
+            Confirm password must be at least 6 characters.
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="wizard.step==2">
+    <form [formGroup]="wizardForm2" > 
+      <div class="form-group">
+        <label for="dbAddress">Database Address</label>
+        <input type="text" class="form-control" id="dbAddress" formControlName="dbAddress" placeholder="Database address(ip or domain)" >
+        <div *ngIf="wizardForm2.controls.dbAddress.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm2.controls.dbAddress.errors.required">
+            Database address is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dbUSer">Database User</label>
+        <input type="text" class="form-control" id="dbUSer" formControlName="dbUSer" placeholder="Database user" >
+        <div *ngIf="wizardForm2.controls.dbUSer.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm2.controls.dbUSer.errors.required">
+            Database user is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dbPassword">Database Password</label>
+        <input type="password" class="form-control" id="dbPassword" formControlName="dbPassword" placeholder="Database password" >
+        <div *ngIf="wizardForm2.controls.dbPassword.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm2.controls.dbPassword.errors.required">
+            Database password is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dbName">Database Name</label>
+        <input type="text" class="form-control" id="dbName" formControlName="dbName" placeholder="Database name" >
+        <div *ngIf="wizardForm2.controls.dbName.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm2.controls.dbName.errors.required">
+            Database name is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button id="btnTestConnection" class=" btn btn-primary" (click)="testDBConnection()" style="margin-bottom: 10px;">Test DB Connection</button>
+        
+        <div *ngIf="dbTested==2" class="alert alert-danger">
+          Connect to db failed, pleaes check db credentials
+        </div>
+        <div *ngIf="dbTested==1" class="alert alert-success">
+          DB tested OK
+        </div>
+        <div *ngIf="dbTested==0" class="alert alert-warning">
+          Connecting to DB...
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="wizard.step==3">
+    <form [formGroup]="wizardForm3" > 
+      <div class="form-group">
+        <label for="emailDomain">Email Domain</label>
+        <input type="text" class="form-control" id="emailDomain" formControlName="emailDomain" placeholder="Email Domain" >
+        <div *ngIf="wizardForm3.controls.emailDomain.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm3.controls.emailDomain.errors.required">
+            Email domain is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="emailUser">Email User</label>
+        <input type="text" class="form-control" id="emailUser" formControlName="emailUser" placeholder="Email User" >
+        <div *ngIf="wizardForm3.controls.emailUser.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm3.controls.emailUser.errors.required">
+            Email USer is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="emailPassword">Email Password</label>
+        <input type="password" class="form-control" id="emailPassword" formControlName="emailPassword" placeholder="Email Password" >
+        <div *ngIf="wizardForm3.controls.emailPassword.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm3.controls.emailPassword.errors.required">
+            Email password is required.
+          </div>
+          <div *ngIf="wizardForm3.controls.emailPassword.errors.minlength">
+            Email password must be at least 6 characters.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cfmEmailPassword">Confirm Email Password</label>
+        <input type="password" class="form-control" id="cfmEmailPassword" formControlName="cfmEmailPassword" placeholder="Confirm Email Password" >
+        <div *ngIf="wizardForm3.controls.cfmEmailPassword.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm3.controls.cfmEmailPassword.errors.required">
+            Confirm email password is required.
+          </div>
+          <div *ngIf="wizardForm3.controls.cfmEmailPassword.errors.notEquivalent">
+            Confirm email password does not match password.
+          </div>
+          <div *ngIf="wizardForm3.controls.cfmEmailPassword.errors.minlength">
+            Confirm email password must be at least 6 characters.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="baseMailFolder">Path for Email Storage</label>
+        <input class="form-control" id="baseMailFolder" formControlName="baseMailFolder" placeholder="Path for email storage">
+        <div *ngIf="wizardForm3.controls.baseMailFolder.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm3.controls.baseMailFolder.errors.required">
+            Path for email storage is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="runasuser">Run Postfix/Dovecot as User</label>
+        <input class="form-control" id="runasuser" formControlName="runasuser" placeholder="Run postfix/dovecot as user" >
+        <div *ngIf="wizardForm3.controls.runasuser.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm3.controls.runasuser.errors.required">
+            Run postfix/dovecot as user is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sudoPassword">Sudo Password</label>
+        <input class="form-control" id="sudoPassword" formControlName="sudoPassword" placeholder="Sudo password" >
+        <div *ngIf="wizardForm3.controls.sudoPassword.invalid && submitted" class="alert alert-danger">
+          <div *ngIf="wizardForm3.controls.sudoPassword.errors.required">
+            Sudo password is required.
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="wizard.step==4">
+    <form [formGroup]="wizardForm4" > 
+      <h2 *ngIf="dependencyTested==0">Checking dependency</h2>
+      <h2 *ngIf="dependencyTested!=0">Check dependency result</h2>
+      <ul>
+        <li *ngFor="let dep of dependencyResult">
+          <div *ngIf="dep.error;then err_result else ok_result"></div>    
+          <ng-template #err_result>{{ dep.name }} not installed</ng-template>
+          <ng-template #ok_result>{{ dep.name }} check ok</ng-template>
+          
+        </li>
+      </ul>
+    </form>
+  </div>
+  
+  <div class="form-group">
+    <button id="btnPrevious" *ngIf="wizard.step>1" class="btn btn-primary" (click)="previousStep()">Previous</button>
+    <button id="btnNext" *ngIf="wizard.step<=wizard.totalStep" class="btn btn-primary" (click)=" nextStep()" [disabled]="dependencyTested==0">
+      <span *ngIf="wizard.step<wizard.totalStep">Next</span>
+      <span *ngIf="wizard.step==wizard.totalStep&&dependencyTested==0">Check</span>
+      <span *ngIf="wizard.step==wizard.totalStep&&dependencyTested==1">Finish</span>
+      <span *ngIf="wizard.step==wizard.totalStep&&dependencyTested==2">Check</span>
+    </button>
+  </div>
+  
+  
+
+<div>
