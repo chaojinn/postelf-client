@@ -1,7 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Rajdhani|Lobster');
+
 app-leftmenu{
   display:inline-block;
 }
 
 .dashroot{
   background-color:#F8F8F8;
+  position:absolute;
+  width:100%;
+  z-index:0;
+}
+
+.alert{
+  position:absolute;
+  width:100%;
+  z-index:10;
+  opacity:0;
+  display:none;
+  animation-name: showMessage;
+  animation-duration: 10s;
+  text-align:center;
+  font-family: 'Rajdhani', sans-serif;
+  font-size:1.5em;
+}
+
+@keyframes showMessage {
+    from {opacity:1}
+    to {opacity:0}
 }

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Rajdhani|Lobster');
+@import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
+
 .mainContent{
   display:inline-block;
   background:#F8F8F8;
@@ -19,4 +22,69 @@
   border: 0px ;
   box-shadow: -10px 10px 30px #C0C0C0;
   margin-bottom:2em;
+  padding-top:2em;
+  padding-bottom:2em;
+  padding-left:10%;
+  padding-right:10%;
+  ul {
+    list-style: none;
+    text-align:left;
+    font-family: 'Rajdhani', sans-serif;
+    font-size:1.5em;
+  }
+}
+.serviceName{
+  width:25%;
+  text-align:left;
+  display:inline-block;
+  text-transform:capitalize ;
+  font-size:1.5em;
+}
+
+.serviceStatus {
+  width:50%;
+  text-align:right;
+  display:inline-block;
+  
+  .fa-spinner{
+    color:#E5D182;
+    font-size:1.5em;
+  }
+  
+  .fa-check-circle{
+    color:#3AAB83;
+    font-size:1.5em;
+  }
+  .fa-times-circle{
+    color:#e5546a;
+    font-size:1.5em;
+  }
+  
+}
+
+.serviceRestart{
+  width:25%;
+  display:inline-block;
+  cursor:pointer;
+  padding-left:2em;
+  font-size:1.5em;
+}
+
+.statName{
+  min-width:250px;
+  width:75%;
+  display:table-cell;
+  font-size: 1.5em;
+}
+
+.statValue{
+  min-width:250px;
+  width:75%;
+  display:table-cell;
+  text-align:right;
+  font-size: 1.5em;
+}
+.subtitle{
+  font-family: 'Lobster', cursive;
+  font-size:2.5em;
 }

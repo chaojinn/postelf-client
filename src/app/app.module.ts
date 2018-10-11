@@ -19,6 +19,7 @@ import {ErrorInterceptor } from './interceptor/errorInterceptor';
 import {JwtInterceptor } from './interceptor/jwtinterceptor';
 import { LeftmenuComponent } from './dashboard/leftmenu/leftmenu.component';
 import { StatusPanelComponent} from './dashboard/statuspanel/statuspanel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { StatusPanelComponent} from './dashboard/statuspanel/statuspanel.compone
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     UserService,

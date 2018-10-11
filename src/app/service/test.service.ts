@@ -145,4 +145,10 @@ export class TestService {
     let ret=this.httpClient.get(environment.API_URL+"/systemservices");
     return ret;
   }
+  
+  testRestartServiceEx(){
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
+    let ret=this.httpClient.put(environment.API_URL+"/systemservices/postfix",{"cmd":"restart"},{headers});
+    return ret;
+  }
 }

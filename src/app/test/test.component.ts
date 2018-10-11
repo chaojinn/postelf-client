@@ -86,8 +86,16 @@ export class TestComponent implements OnInit {
   }
   
   testGetServices(){
-    console.log("testGetUser clicked");
+    console.log("testGetServices clicked");
     this.testService.testGetServices().subscribe( data => {
+      console.log(data);
+    },err=>{
+      console.log("error:"+err);
+    });
+  }
+  testRestartServiceEx(){
+    console.log("testRestartService clicked");
+    this.testService.testRestartServiceEx().subscribe( data => {
       console.log(data);
     },err=>{
       console.log("error:"+err);

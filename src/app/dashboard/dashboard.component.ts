@@ -26,6 +26,8 @@ export class DashboardComponent implements OnInit {
     this.container.clear();
     const factory: ComponentFactory<StatusPanelComponent> = this.resolver.resolveComponentFactory(StatusPanelComponent);
     this.componentRef = this.container.createComponent(factory);
+    this.componentRef.instance.showMessage.subscribe(result => this.onShowMessage(result));
+    //this.componentRef.getShowMessageListener().subscribe(result => this.onShowMessage(result));
   }
   
   ngOnInit() {
@@ -35,18 +37,28 @@ export class DashboardComponent implements OnInit {
   onMenuClicked(name:string){
     if(name="statuspanel")
       this.showStatusPanel();
+    
+   
+  }
+  
+  onShowMessage(result:any){
+    console.log(JSON.stringify(result));
+    let msgBox = document.getElementById("messageBox");
+    if(result.code==200){
+      msgBox.innerHTML=result.message;
+    }
+    else{
+      msgBox.innerHTML=result.error;
+    }
+    let newNode = msgBox.cloneNode(true);
+    msgBox.parentNode.replaceChild(newNode, msgBox);
+    
+    (document.querySelector('.alert') as HTMLElement).style["display"]="block";
   }
   
   ngOnDestroy() {
     this.componentRef.destroy();
   }
   
-  getuser(){
-    console.log("getuser");
-    this.userService.getUser(123).subscribe( data => {
-      console.log(data);
-    },err=>{
-      console.log("error:"+err);
-    });
-  }
+ 
 }

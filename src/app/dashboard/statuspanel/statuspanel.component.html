@@ -1,8 +1,53 @@
 <div class="mainContent">
   <div class="pnlStatus">
-    <h1>System services status<br><br><br><br></h1>
+    <h1 class="subtitle">System services status</h1>
+    <ul>
+      <li>
+        <div class="serviceName">postfix</div> 
+        <div class="serviceStatus">
+          <i class="fas fa-spinner" *ngIf="serviceStatus['postfix']==-1"></i>
+          <i class="fas fa-check-circle" *ngIf="serviceStatus['postfix']==0"></i>
+          <i class="fas fa-times-circle" *ngIf="serviceStatus['postfix']==1"></i>
+        </div> 
+        <div class="serviceRestart" (click)="restartService('postfix')">Restart</div> 
+      </li>
+      <li>
+        <div class="serviceName">dovecot</div> 
+        <div class="serviceStatus">
+          <i class="fas fa-spinner" *ngIf="serviceStatus['dovecot']==-1"></i>
+          <i class="fas fa-check-circle" *ngIf="serviceStatus['dovecot']==0"></i>
+          <i class="fas fa-times-circle" *ngIf="serviceStatus['dovecot']==1"></i>
+        </div> 
+        <div class="serviceRestart" (click)="restartService('dovecot')">Restart</div> 
+      </li>
+      <li>
+        <div class="serviceName">saslauthd</div> 
+        <div class="serviceStatus">
+          <i class="fas fa-spinner" *ngIf="serviceStatus['saslauthd']==-1"></i>
+          <i class="fas fa-check-circle" *ngIf="serviceStatus['saslauthd']==0"></i>
+          <i class="fas fa-times-circle" *ngIf="serviceStatus['saslauthd']==1"></i>
+        </div> 
+        <div class="serviceRestart" (click)="restartService('saslauthd')">Restart</div> 
+      </li>
+      <li>
+        <div class="serviceName">postgresql</div> 
+        <div class="serviceStatus">
+          <i class="fas fa-spinner" *ngIf="serviceStatus['postgresql']==-1"></i>
+          <i class="fas fa-check-circle" *ngIf="serviceStatus['postgresql']==0"></i>
+          <i class="fas fa-times-circle" *ngIf="serviceStatus['postgresql']==1"></i>
+        </div> 
+        <div class="serviceRestart" (click)="restartService('postgresql')">Restart</div> 
+      </li>
+    </ul>
   </div>
   <div class="pnlStatus">
-    <h1>Statistics<br><br><br><br><br><br><br><br></h1>
+    <h1 class="subtitle">Statistics</h1>
+    <ul>
+      <li><span class="statName">Total Domains:</span><span class="statValue" *ngIf="!emailUsageLoaded">Loading...</span><span class="statValue" *ngIf="emailUsageLoaded">{{domains}}</span><li>
+      <li><span class="statName">Total Mailboxes:</span><span class="statValue" *ngIf="!emailUsageLoaded">Loading...</span><span class="statValue" *ngIf="emailUsageLoaded">{{mailboxes}}</span><li>
+      <li><span class="statName">Total Disk Usage:</span><span class="statValue" *ngIf="!diskUsageLoaded">Loading...</span><span class="statValue" *ngIf="diskUsageLoaded">{{usedSize}}</span><li>
+      <li><span class="statName">Total Free Space:</span><span class="statValue" *ngIf="!diskUsageLoaded">Loading...</span><span class="statValue" *ngIf="diskUsageLoaded">{{freeSize}}</span><li>
+    </ul>
+    
   </div>
 </div>

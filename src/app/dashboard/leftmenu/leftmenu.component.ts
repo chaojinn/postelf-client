@@ -16,4 +16,6 @@ export class LeftmenuComponent implements OnInit {
     console.log("menuClick:"+name);
     this.menuClicked.emit(name);
   }
+  
+  
 }
